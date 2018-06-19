@@ -81,7 +81,9 @@ clouds, etc.).
 ./run_lba_encoder.sh 0 LBA1 'shapenet/encoder_logdir' 'train encoder on shapenet' '--dataset shapenet --validation --visit_weight 0.25 --learning_rate 2e-4 --lba_mode MM --num_epochs 100 --decay_steps 2500 --lba_test_mode shape --batch_size 100 --lba_unnormalize'
 
 # Generate text and shape embeddings in a subdirectory under the model path called train/val/test
-./tools/scripts/generate_text_embeddings.sh LBA1 outputs/shapenet/encoder_logdir/model.ckpt-50 '--dataset shapenet --visit_weight 0.25 --lba_mode MM --num_epochs 10000 --lba_test_mode text --lba_unnormalize'
+# replace <model> with corresponding model prefix
+# replace <split> with train/val/test to generate embeddings of corresponding split
+./tools/scripts/generate_text_embeddings.sh LBA1 outputs/shapenet/encoder_logdir/<model> '--dataset shapenet --val_split <split> --visit_weight 0.25 --lba_mode MM --num_epochs 10000 --lba_test_mode text --lba_unnormalize'
 ```
 
 #### Primitives
