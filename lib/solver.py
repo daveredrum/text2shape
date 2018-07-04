@@ -164,6 +164,9 @@ class Solver(object):
 
                 if (step + 1) % cfg.TRAIN.CKPT_FREQ == 0:
                     self.save(sess, step)
+            
+            # save model after training
+            self.save(sess, step)
 
     def forward_pass_batches(self, sess, minibatch_generator):
         """Forward pass a series of minibatches from the minibatch generator.

@@ -69,8 +69,10 @@ class TextEncoderSolver(Solver):
             for i in range(captions_tensor.shape[0]):
                 if embedding_type == 'shape':
                     caption = None
+                    shape_intermediate = outputs['shape_intermediate']
                 else:
                     caption = captions_tensor[i]
+                    shape_intermediate = None
                 category = self.get_category(category_list, i)
                 model_id = self.get_model_id(model_list, i)
                 if embedding_type == 'text':
@@ -88,7 +90,7 @@ class TextEncoderSolver(Solver):
                         seen_shapes.append(model_id)
                 else:
                     return ValueError('Please use a valid embedding type (text or shape).')
-                caption_tuple = (caption, category, model_id, caption_embedding)
+                caption_tuple = (caption, category, model_id, caption_embedding, shape_intermediate)
 
                 caption_tuples.append(caption_tuple)
         return caption_tuples

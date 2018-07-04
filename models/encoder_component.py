@@ -94,6 +94,8 @@ class ShapeEncoder(NetComponent):
         x = tf.layers.batch_normalization(x, training=self.is_training, name='conv3_batch_norm',
                                           reuse=self.reuse)
         x = layers.relu(x, name='conv3_relu')
+        # get intermediate results
+        intermediate_output = x
         x = layers.avg_pooling3d(x, name='avg_pool4')
         x = layers.dense(x, 128, name='fc5', reuse=self.reuse)
         encoder_output = x
@@ -104,6 +106,7 @@ class ShapeEncoder(NetComponent):
             'logits': x,
             'probabilities': prob,
             'encoder_output': encoder_output,
+            'intermediate_output': intermediate_output
         }
 
         return output_dict

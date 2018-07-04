@@ -46,7 +46,7 @@ __C.DIR.RGB_VOXEL_PATH = '/mnt/raid/davech2y/ShapeNetCore_vol/nrrd_256_filter_di
 __C.DIR.LOG_PATH = './output/default'
 __C.DIR.CKPT_PATH = None
 __C.DIR.VAL_CKPT_PATH = None
-__C.DIR.DATA_PATH = '/home/davech2y/text2shape/data'  # TODO: Modify this
+__C.DIR.DATA_PATH = '/home/davech2y/text2shape/data/'  # TODO: Modify this
 
 __C.DIR.SHAPENET_DATA_PATH = os.path.join(__C.DIR.DATA_PATH, 'shapenet')
 __C.DIR.RAW_CAPTION_CSV = '/mnt/raid/davech2y/ShapeNetCore_vol/captions.tablechair.csv'  # TODO: Modify this

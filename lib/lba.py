@@ -316,6 +316,7 @@ class LBA(Network):
             self.outputs['text_encoder']['encoder_output'],
             self.outputs['shape_encoder']['encoder_output'],
             self.outputs['shape_encoder']['logits'],
+            self.outputs['shape_encoder']['intermediate_output']
         ]
         if cfg.LBA.NO_LBA is False:
             eval_tensors.append(self.p_aba)
@@ -335,6 +336,7 @@ class LBA(Network):
         shape_encoder_output = {
             'encoder_output': outputs[1]
         }
+        shape_intermediate = outputs[3]
         logits = outputs[2]
         if cfg.LBA.NO_LBA is False:
             p_aba_val = outputs[3]
@@ -345,6 +347,7 @@ class LBA(Network):
         outputs_dict = {
             'text_encoder': text_encoder_output,
             'shape_encoder': shape_encoder_output,
+            'shape_intermediate': shape_intermediate,
             'p_aba': p_aba_val,
             'p_target': p_target_val,
             'logits': logits,
