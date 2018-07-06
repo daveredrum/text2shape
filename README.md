@@ -103,7 +103,7 @@ bash tools/scripts/generate_text_embeddings.sh LBA1 outputs/primitives/encoder_l
 # replace <model> with corresponding model prefix
 # replace <timestamp> with correct time
 # replace <split> with train/val/test to generate embeddings of corresponding split
-./tools/scripts/generate_text_embeddings.sh LBA1 outputs/primitives/encoder_logdir/<timestamp>/<model> '--dataset primitives --val_split <split> --visit_weight 0.25 --lba_mode MM --num_epochs 10000 --lba_test_mode shape --lba_unnormalize'
+bash tools/scripts/generate_text_embeddings.sh LBA1 outputs/primitives/encoder_logdir/<timestamp>/<model> '--dataset primitives --val_split <split> --visit_weight 0.25 --lba_mode MM --num_epochs 10000 --lba_test_mode shape --lba_unnormalize'
 ```
 
 ### Conditional Wasserstein GAN
