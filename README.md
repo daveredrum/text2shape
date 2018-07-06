@@ -82,21 +82,28 @@ bash run_lba_encoder.sh 0 LBA1 'shapenet/encoder_logdir' 'train encoder on shape
 
 # Generate text and shape embeddings in a subdirectory under the model path called train/val/test
 # replace <model> with corresponding model prefix
+# replace <timestamp> with correct time
 # replace <split> with train/val/test to generate embeddings of corresponding split
-bash tools/scripts/generate_text_embeddings.sh LBA1 outputs/shapenet/encoder_logdir/<model> '--dataset shapenet --val_split <split> --visit_weight 0.25 --lba_mode MM --num_epochs 10000 --lba_test_mode text --lba_unnormalize'
+bash tools/scripts/generate_text_embeddings.sh LBA1 outputs/shapenet/encoder_logdir/<timestamp>/<model> '--dataset shapenet --val_split <split> --visit_weight 0.25 --lba_mode MM --num_epochs 10000 --lba_test_mode text --lba_unnormalize'
 ```
 
 #### Primitives
 
-```
+```bash
 # Train
-./run_lba_encoder.sh 0 LBA1 'primitives/encoder_logdir' 'our full method on primitives' '--dataset primitives --validation --visit_weight 0.25 --learning_rate 2e-4 --lba_mode MM --num_epochs 100 --decay_steps 5000 --lba_test_mode shape --batch_size 100 --lba_unnormalize'
+bash run_lba_encoder.sh 0 LBA1 'primitives/encoder_logdir' 'our full method on primitives' '--dataset primitives --validation --visit_weight 0.25 --learning_rate 2e-4 --lba_mode MM --num_epochs 100 --decay_steps 5000 --lba_test_mode shape --batch_size 100 --lba_unnormalize'
 
 # Generate text embeddings
-./tools/scripts/generate_text_embeddings.sh LBA1 outputs/primitives/encoder_logdir/model.ckpt-500 '--dataset primitives --visit_weight 0.25 --lba_mode MM --num_epochs 10000 --lba_test_mode text --lba_unnormalize'
+# replace <model> with corresponding model prefix
+# replace <timestamp> with correct time
+# replace <split> with train/val/test to generate embeddings of corresponding split
+bash tools/scripts/generate_text_embeddings.sh LBA1 outputs/primitives/encoder_logdir/<timestamp>/<model> '--dataset primitives --val_split <split> --visit_weight 0.25 --lba_mode MM --num_epochs 10000 --lba_test_mode text --lba_unnormalize'
 
 # Generate shape embeddings
-./tools/scripts/generate_text_embeddings.sh LBA1 outputs/primitives/encoder_logdir/model.ckpt-500 '--dataset primitives --visit_weight 0.25 --lba_mode MM --num_epochs 10000 --lba_test_mode shape --lba_unnormalize'
+# replace <model> with corresponding model prefix
+# replace <timestamp> with correct time
+# replace <split> with train/val/test to generate embeddings of corresponding split
+./tools/scripts/generate_text_embeddings.sh LBA1 outputs/primitives/encoder_logdir/<timestamp>/<model> '--dataset primitives --val_split <split> --visit_weight 0.25 --lba_mode MM --num_epochs 10000 --lba_test_mode shape --lba_unnormalize'
 ```
 
 ### Conditional Wasserstein GAN
